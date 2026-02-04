@@ -1,4 +1,4 @@
-/* ===== RESET & BASE STYLES ===== */
+
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
 
 * {
@@ -32,7 +32,7 @@ body {
     min-height: 100vh;
 }
 
-/* ===== NAVIGATION ===== */
+/* ===== Điều hướng ===== */
 .navbar {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     padding: 1rem 2rem;
@@ -94,14 +94,14 @@ body {
     cursor: pointer;
 }
 
-/* ===== MAIN CONTAINER ===== */
+/* ===== KHUNG CHÍNH ===== */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
 }
 
-/* ===== EXERCISE LAYOUT (BÀI 1) ===== */
+/* ===== BỐ CỤC BÀI TẬP (BÀI 1) ===== */
 .exercise-container {
     display: flex;
     flex-direction: column;
@@ -125,7 +125,7 @@ body {
     color: var(--text-muted);
 }
 
-/* ===== PAGE HEADER ===== */
+/* ===== TIÊU ĐỀ TRANG ===== */
 .page-header {
     text-align: center;
     margin-bottom: 2rem;
@@ -150,7 +150,7 @@ body {
     font-size: 1rem;
 }
 
-/* ===== TWO-COLUMN LAYOUT (BÀI 2) ===== */
+/* ===== BỐ CỤC HAI CỘT (BÀI 2) ===== */
 .exercise-two-column {
     display: flex;
     flex-direction: column;
@@ -166,7 +166,7 @@ body {
     }
 }
 
-/* ===== CARDS ===== */
+/* ===== THẺ (CARDS) ===== */
 .card {
     background: var(--bg-card);
     border-radius: var(--radius);
@@ -207,7 +207,7 @@ body {
     margin-bottom: 0.75rem;
 }
 
-/* ===== BUTTONS ===== */
+/* ===== NÚT NHẤN ===== */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -253,7 +253,7 @@ body {
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
 }
 
-/* ===== FORM STYLES ===== */
+/* ===== BIỂU MẪU ===== */
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -314,7 +314,7 @@ body {
     cursor: pointer;
 }
 
-/* ===== SEARCH BOX ===== */
+/* ===== HỘP TÌM KIẾM ===== */
 .search-box {
     display: flex;
     justify-content: flex-start;
@@ -348,7 +348,7 @@ body {
     box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
 }
 
-/* ===== PRODUCT GRID ===== */
+/* ===== LƯỚI SẢN PHẨM ===== */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -443,7 +443,7 @@ body {
     color: var(--primary);
 }
 
-/* ===== NO RESULTS ===== */
+/* ===== KHÔNG CÓ KẾT QUẢ ===== */
 .no-results {
     grid-column: 1 / -1;
     text-align: center;
@@ -468,7 +468,7 @@ body {
     color: var(--text-muted);
 }
 
-/* Empty state & loading for bài 1 */
+/* Trạng thái trống & tải cho bài 1 */
 .empty-state {
     grid-column: 1 / -1;
     text-align: center;
@@ -487,7 +487,7 @@ body {
     grid-column: 1 / -1;
 }
 
-/* Product detail overlay (bài 1) */
+/* Overlay chi tiết sản phẩm (bài 1) */
 .product-detail-overlay {
     position: fixed;
     inset: 0;
@@ -585,7 +585,7 @@ body {
     }
 }
 
-/* ===== TIMER STYLES ===== */
+/* ===== ĐỒNG HỒ ĐẾM NGƯỢC ===== */
 .timer-container {
     text-align: center;
     padding: 3rem;
@@ -695,7 +695,7 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* ===== ABOUT & CONTACT PAGES ===== */
+/* ===== GIỚI THIỆU & LIÊN HỆ ===== */
 .profile-section {
     display: flex;
     flex-direction: column;
@@ -756,7 +756,7 @@ body {
     font-size: 0.875rem;
 }
 
-/* ===== HOME PAGE ===== */
+/* ===== TRANG CHỦ ===== */
 .hero-section {
     text-align: center;
     padding: 4rem 2rem;
@@ -847,7 +847,7 @@ body {
     color: var(--text-muted);
 }
 
-/* ===== FOOTER ===== */
+/* ===== CHÂN TRANG ===== */
 .footer {
     background: var(--text-dark);
     color: white;
@@ -881,7 +881,7 @@ body {
     color: #ffffff;
 }
 
-/* ===== ALERT MESSAGES ===== */
+/* ===== THÔNG BÁO ===== */
 .alert {
     padding: 1rem 1.5rem;
     border-radius: var(--radius);
@@ -917,7 +917,7 @@ body {
     color: var(--danger);
 }
 
-/* ===== BÀI TẬP 14: MEMORY CARD GAME ===== */
+/* ===== BÀI TẬP 14: TRÒ CHƠI GHÉP THẺ ===== */
 .memory-game-container {
     text-align: center;
 }
@@ -988,7 +988,7 @@ body {
     }
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;

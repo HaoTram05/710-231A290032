@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Điều hướng -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
@@ -30,16 +30,16 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+   <!-- ND chính -->
     <main class="container">
         <div class="exercise-container">
-            <!-- Page Header -->
+            <!-- Tiêu đề -->
             <section class="exercise-header">
                 <h1><i class="fa-solid fa-store"></i> TechStore Premium</h1>
                 <p>Bài tập 1: Danh sách sản phẩm công nghệ với chức năng tìm kiếm nâng cao</p>
             </section>
 
-            <!-- Search Box -->
+            <!-- Hộp tìm kiếm -->
             <div class="search-box" data-testid="search-box">
                 <div class="search-box-inner">
                     <input 
@@ -54,12 +54,11 @@
                 </div>
             </div>
 
-            <!-- Product Grid -->
+            <!-- Lưới sản phẩm -->
             <div class="product-grid" id="product-container" data-testid="product-container">
-                <!-- Products will be rendered by JavaScript -->
             </div>
 
-            <!-- Logic Explanation -->
+            <!-- CTKỹ Thuật Implementation -->
             <section class="explanation-card">
                 <h2>
                     <i class="fa-solid fa-code"></i> Chi Tiết Kỹ Thuật Implementation
@@ -92,7 +91,7 @@
         </div>
     </main>
 
-    <!-- Product Detail Overlay -->
+    <!-- Overlay CTSP -->
     <div class="product-detail-overlay" id="product-detail-overlay" aria-hidden="true">
         <div class="product-detail-card" role="dialog" aria-modal="true">
             <button class="product-detail-close" type="button" aria-label="Đóng chi tiết sản phẩm" data-detail-close>
@@ -111,7 +110,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Chân trang -->
     <footer class="footer">
         <p>&copy;MSSV: 231A290043 | Bài thi Lập Trình Web</p>
         <div class="footer-links">
@@ -276,7 +275,7 @@
             };
 
             const renderProducts = (list) => {
-                // Add loading animation
+            
                 productContainer.innerHTML = '<div class="loading-spinner" style="grid-column: 1/-1; text-align: center; padding: 3rem;"><i class="fa-solid fa-spinner fa-spin" style="font-size: 3rem; color: var(--primary);"></i></div>';
                 
                 setTimeout(() => {
@@ -305,7 +304,7 @@
                                 openProductDetail(product);
                             });
                         }
-                        // Stagger animation
+                      
                         card.style.opacity = '0';
                         card.style.transform = 'translateY(30px)';
                         setTimeout(() => {
