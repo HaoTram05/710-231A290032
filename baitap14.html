@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 14 - Memory Card Game | 710-231A290043</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fa-solid fa-code"></i>
+                HaoTram
+            </a>
+            <button class="nav-toggle" data-testid="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="baitap01.html">Bài tập 1</a></li>
+                <li><a href="baitap02.html">Bài tập 2</a></li>
+                <li><a href="baitap03.html">Bài tập 3</a></li>
+                <li><a href="baitap14.html" class="active">Bài tập 14</a></li>
+                <li><a href="about.html">Giới thiệu</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Page Header -->
+        <section class="page-header">
+            <h1><i class="fa-solid fa-gamepad"></i> Memory Card Flip Game</h1>
+            <p>Bài tập 14: Game lật thẻ ghi nhớ, đếm số lượt chơi</p>
+        </section>
+
+        <!-- Memory Game -->
+        <section class="card memory-game-container">
+            <header class="memory-header">
+                <h2>Hãy tìm các cặp hình giống nhau</h2>
+                <p>Số lượt: <span id="memory-moves">0</span></p>
+            </header>
+
+            <section class="memory-game-board" id="memory-game-board">
+                <div class="memory-card" data-icon="🍎">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front"></div>
+                        <div class="memory-card-back">🍎</div>
+                    </div>
+                </div>
+                <div class="memory-card" data-icon="🍎">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front"></div>
+                        <div class="memory-card-back">🍎</div>
+                    </div>
+                </div>
+
+                <div class="memory-card" data-icon="🍌">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front"></div>
+                        <div class="memory-card-back">🍌</div>
+                    </div>
+                </div>
+                <div class="memory-card" data-icon="🍌">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front"></div>
+                        <div class="memory-card-back">🍌</div>
+                    </div>
+                </div>
+
+                <div class="memory-card" data-icon="🍇">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front"></div>
+                        <div class="memory-card-back">🍇</div>
+                    </div>
+                </div>
+                <div class="memory-card" data-icon="🍇">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front"></div>
+                        <div class="memory-card-back">🍇</div>
+                    </div>
+                </div>
+
+                <div class="memory-card" data-icon="🍒">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front"></div>
+                        <div class="memory-card-back">🍒</div>
+                    </div>
+                </div>
+                <div class="memory-card" data-icon="🍒">
+                    <div class="memory-card-inner">
+                        <div class="memory-card-front"></div>
+                        <div class="memory-card-back">🍒</div>
+                    </div>
+                </div>
+            </section>
+
+            <button class="btn btn-primary" id="memory-reset-btn">
+                <i class="fa-solid fa-rotate-right"></i> Chơi lại
+            </button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy;MSSV: 231A290043 | Bài thi Lập Trình Web</p>
+        <div class="footer-links">
+            <a href="https://www.facebook.com/hao.tram.51135" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-facebook"></i>
+                <span>Facebook</span>
+            </a>
+            <a href="https://www.tiktok.com/@haotram1007?_r=1&amp;_t=ZS-93e0CLvtA2r" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-tiktok"></i>
+                <span>TikTok</span>
+            </a>
+            <a href="tel:+84857927869">
+                <i class="fa-solid fa-phone"></i>
+                <span>+84 857 927 869</span>
+            </a>
+            <a href="mailto:tramngochao05@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+                <span>tramngochao05@gmail.com</span>
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

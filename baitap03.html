@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 3 - Đồng hồ đếm ngược | 710-231A290043</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fa-solid fa-code"></i>
+                HaoTram
+            </a>
+            <button class="nav-toggle" data-testid="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="baitap01.html">Bài tập 1</a></li>
+                <li><a href="baitap02.html">Bài tập 2</a></li>
+                <li><a href="baitap03.html" class="active">Bài tập 3</a></li>
+                <li><a href="baitap14.html">Bài tập 14</a></li>
+                <li><a href="about.html">Giới thiệu</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Page Header -->
+        <section class="page-header">
+            <h1><i class="fa-solid fa-stopwatch"></i> Đồng Hồ Đếm Ngược</h1>
+            <p>Bài tập 3: Timer 10 phút với animation và modal alert</p>
+        </section>
+
+        <!-- Timer Section -->
+        <section class="card timer-container" data-testid="timer-container">
+            <!-- Timer Display -->
+            <div class="timer-display" id="timer-display" data-testid="timer-display">
+                10:00
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="timer-progress">
+                <div class="timer-progress-bar" id="timer-progress-bar" data-testid="timer-progress-bar" style="width: 100%;"></div>
+            </div>
+
+            <!-- Timer Controls -->
+            <div class="timer-controls" style="margin-top: 2rem;">
+                <button class="btn btn-success" id="start-btn" data-testid="start-btn">
+                    <i class="fa-solid fa-play"></i> Bắt đầu
+                </button>
+                <button class="btn btn-secondary" id="pause-btn" data-testid="pause-btn" style="display: none;">
+                    <i class="fa-solid fa-pause"></i> Tạm dừng
+                </button>
+                <button class="btn btn-primary" id="reset-btn" data-testid="reset-btn">
+                    <i class="fa-solid fa-rotate-right"></i> Đặt lại
+                </button>
+            </div>
+        </section>
+
+        <!-- Logic Explanation -->
+        <section class="card" style="margin-top: 2rem;">
+            <h2 style="margin-bottom: 1rem; color: var(--primary);">
+                <i class="fa-solid fa-lightbulb"></i> Giải thích logic tư duy
+            </h2>
+            <div style="color: var(--text-muted); line-height: 1.8;">
+                <h3 style="color: var(--text-dark); margin-bottom: 0.5rem;">1. Xử lý interval để tránh memory leak:</h3>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li><strong>Lưu reference:</strong> Luôn lưu ID từ setInterval vào biến <code>timerInterval</code></li>
+                    <li><strong>Clear khi cần:</strong> Gọi <code>clearInterval()</code> khi pause, reset, hoặc hết thời gian</li>
+                    <li><strong>Single interval:</strong> Chỉ tạo một interval tại một thời điểm, clear cái cũ trước khi tạo mới</li>
+                    <li><strong>Cleanup:</strong> Sử dụng <code>beforeunload</code> event để clear interval khi rời trang</li>
+                </ul>
+                
+                <h3 style="color: var(--text-dark); margin-bottom: 0.5rem;">2. Tích hợp với Domain/Hosting khi deploy:</h3>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li><strong>Server timestamp:</strong> Lấy thời gian từ server làm mốc để tránh sai lệch múi giờ</li>
+                    <li><strong>endTime approach:</strong> Lưu thời điểm kết thúc, tính remaining mỗi tick (chính xác hơn khi tab inactive)</li>
+                    <li><strong>NTP sync:</strong> Có thể đồng bộ với NTP server cho ứng dụng cần độ chính xác cao</li>
+                    <li><strong>WebSocket:</strong> Sử dụng WebSocket để đồng bộ timer real-time giữa nhiều client</li>
+                </ul>
+
+                <h3 style="color: var(--text-dark); margin-bottom: 0.5rem;">3. Xử lý edge cases:</h3>
+                <ul style="margin-left: 1.5rem;">
+                    <li><strong>Tab inactive:</strong> Browser throttle setInterval khi tab không active, dùng endTime để tính lại</li>
+                    <li><strong>Animation:</strong> CSS animation pulse khi dưới 1 phút để cảnh báo người dùng</li>
+                    <li><strong>Modal:</strong> Hiển thị modal alert khi hết thời gian, có thể đóng và reset</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Alert -->
+    <div class="modal-overlay" id="timer-modal" data-testid="timer-modal">
+        <div class="modal">
+            <i class="fa-solid fa-bell"></i>
+            <h2>Hết thời gian!</h2>
+            <p>Đồng hồ đếm ngược đã kết thúc.</p>
+            <button class="btn btn-primary" id="close-modal-btn" data-testid="close-modal-btn">
+                <i class="fa-solid fa-check"></i> Đóng
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy;MSSV: 231A290043 | Bài thi Lập Trình Web</p>
+        <div class="footer-links">
+            <a href="https://www.facebook.com/hao.tram.51135" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-facebook"></i>
+                <span>Facebook</span>
+            </a>
+            <a href="https://www.tiktok.com/@haotram1007?_r=1&amp;_t=ZS-93e0CLvtA2r" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-tiktok"></i>
+                <span>TikTok</span>
+            </a>
+            <a href="tel:+84857927869">
+                <i class="fa-solid fa-phone"></i>
+                <span>+84 857 927 869</span>
+            </a>
+            <a href="mailto:tramngochao05@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+                <span>tramngochao05@gmail.com</span>
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

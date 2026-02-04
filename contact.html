@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ | 710-231A290043</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fa-solid fa-code"></i>
+                HaoTram
+            </a>
+            <button class="nav-toggle" data-testid="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="baitap01.html">Bài tập 1</a></li>
+                <li><a href="baitap02.html">Bài tập 2</a></li>
+                <li><a href="baitap03.html">Bài tập 3</a></li>
+                <li><a href="baitap14.html">Bài tập 14</a></li>
+                <li><a href="about.html">Giới thiệu</a></li>
+                <li><a href="contact.html" class="active">Liên hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Page Header -->
+        <section class="page-header">
+            <h1><i class="fa-solid fa-envelope"></i> Liên Hệ</h1>
+        </section>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <!-- Contact Info -->
+            <section class="card">
+                <h2 style="margin-bottom: 1.5rem; color: var(--primary);">
+                    <i class="fa-solid fa-address-book"></i> Thông tin liên hệ
+                </h2>
+                
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div class="info-card" style="margin: 0;">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>tramngochao05@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card" style="margin: 0;">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h3>Điện thoại</h3>
+                            <p>+84 123 456 789</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card" style="margin: 0;">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h3>Địa chỉ</h3>
+                            <p>Q.Tân Bình, TP.HCM</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card" style="margin: 0;">
+                        <i class="fa-brands fa-github"></i>
+                        <div>
+                            <h3>GitHub</h3>
+                            <p>github.com/231A290043</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Form -->
+            <section class="card">
+                <h2 style="margin-bottom: 1.5rem; color: var(--primary);">
+                    <i class="fa-solid fa-paper-plane"></i> Gửi tin nhắn
+                </h2>
+
+                <form id="contact-form" data-testid="contact-form">
+                    <div class="form-group">
+                        <label for="contact-name">
+                            <i class="fa-solid fa-user"></i> Họ và tên
+                        </label>
+                        <input 
+                            type="text" 
+                            id="contact-name" 
+                            class="form-control" 
+                            placeholder="Nhập họ và tên"
+                            data-testid="contact-name"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-email">
+                            <i class="fa-solid fa-envelope"></i> Email
+                        </label>
+                        <input 
+                            type="email" 
+                            id="contact-email" 
+                            class="form-control" 
+                            placeholder="Nhập email của bạn"
+                            data-testid="contact-email"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-subject">
+                            <i class="fa-solid fa-tag"></i> Chủ đề
+                        </label>
+                        <input 
+                            type="text" 
+                            id="contact-subject" 
+                            class="form-control" 
+                            placeholder="Nhập chủ đề"
+                            data-testid="contact-subject"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-message">
+                            <i class="fa-solid fa-message"></i> Nội dung
+                        </label>
+                        <textarea 
+                            id="contact-message" 
+                            class="form-control" 
+                            rows="5" 
+                            placeholder="Nhập nội dung tin nhắn"
+                            data-testid="contact-message"
+                            style="resize: vertical;"
+                        ></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;" data-testid="contact-submit">
+                        <i class="fa-solid fa-paper-plane"></i> Gửi tin nhắn
+                    </button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy;MSSV: 231A290043 | Bài thi Lập Trình Web</p>
+        <div class="footer-links">
+            <a href="https://www.facebook.com/hao.tram.51135" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-facebook"></i>
+                <span>Facebook</span>
+            </a>
+            <a href="https://www.tiktok.com/@haotram1007?_r=1&amp;_t=ZS-93e0CLvtA2r" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-tiktok"></i>
+                <span>TikTok</span>
+            </a>
+            <a href="tel:+84857927869">
+                <i class="fa-solid fa-phone"></i>
+                <span>+84 857 927 869</span>
+            </a>
+            <a href="mailto:tramngochao05@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+                <span>tramngochao05@gmail.com</span>
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

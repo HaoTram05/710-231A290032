@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 2 - Form đăng ký | 710-231A290043</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fa-solid fa-code"></i>
+                HaoTram
+            </a>
+            <button class="nav-toggle" data-testid="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="baitap01.html">Bài tập 1</a></li>
+                <li><a href="baitap02.html" class="active">Bài tập 2</a></li>
+                <li><a href="baitap03.html">Bài tập 3</a></li>
+                <li><a href="baitap14.html">Bài tập 14</a></li>
+                <li><a href="about.html">Giới thiệu</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Page Header -->
+        <section class="page-header">
+            <h1><i class="fa-solid fa-user-plus"></i> Form Đăng Ký Người Dùng</h1>
+            <p>Bài tập 2: Validation và lưu dữ liệu vào LocalStorage</p>
+        </section>
+
+        <div class="exercise-two-column">
+            <!-- Registration Form -->
+            <div class="card">
+                <!-- Alert Messages -->
+                <div class="alert alert-success" id="alert-success" data-testid="alert-success"></div>
+                <div class="alert alert-error" id="alert-error" data-testid="alert-error"></div>
+
+                <form id="registration-form" data-testid="registration-form">
+                    <!-- Name Field -->
+                    <div class="form-group">
+                        <label for="name">
+                            <i class="fa-solid fa-user"></i> Họ và tên
+                        </label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            class="form-control" 
+                            placeholder="Nhập họ và tên"
+                            data-testid="input-name"
+                        >
+                        <p class="error-message" id="name-error"></p>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="form-group">
+                        <label for="email">
+                            <i class="fa-solid fa-envelope"></i> Email
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            class="form-control" 
+                            placeholder="Nhập email"
+                            data-testid="input-email"
+                        >
+                        <p class="error-message" id="email-error"></p>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group">
+                        <label for="password">
+                            <i class="fa-solid fa-lock"></i> Mật khẩu
+                        </label>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            class="form-control" 
+                            placeholder="Nhập mật khẩu (ít nhất 8 ký tự)"
+                            data-testid="input-password"
+                        >
+                        <p class="error-message" id="password-error"></p>
+                    </div>
+
+                    <!-- Terms Checkbox -->
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input 
+                                type="checkbox" 
+                                id="terms" 
+                                data-testid="input-terms"
+                            >
+                            <label for="terms" style="margin-bottom: 0;">
+                                Tôi đồng ý với <a href="#" style="color: var(--primary);">điều khoản sử dụng</a>
+                            </label>
+                        </div>
+                        <p class="error-message" id="terms-error"></p>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-success" style="width: 100%;" data-testid="submit-btn">
+                        <i class="fa-solid fa-check"></i> Đăng ký
+                    </button>
+                </form>
+            </div>
+
+            <!-- Logic Explanation -->
+            <section class="card">
+            <h2 style="margin-bottom: 1rem; color: var(--primary);">
+                <i class="fa-solid fa-lightbulb"></i> Giải thích logic tư duy
+            </h2>
+            <div style="color: var(--text-muted); line-height: 1.8;">
+                <h3 style="color: var(--text-dark); margin-bottom: 0.5rem;">1. Xử lý sự kiện submit:</h3>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li><strong>preventDefault():</strong> Ngăn form submit mặc định, kiểm soát hoàn toàn bằng JavaScript</li>
+                    <li><strong>Validate tuần tự:</strong> Kiểm tra từng field, đánh dấu tất cả lỗi trước khi submit</li>
+                    <li><strong>Real-time validation:</strong> Sử dụng event 'blur' để validate ngay khi rời khỏi field</li>
+                    <li><strong>Visual feedback:</strong> Thêm class 'error'/'success' để hiển thị trạng thái</li>
+                </ul>
+                
+                <h3 style="color: var(--text-dark); margin-bottom: 0.5rem;">2. Bảo mật dữ liệu LocalStorage:</h3>
+                <ul style="margin-left: 1.5rem;">
+                    <li><strong>Không lưu plain text password:</strong> Sử dụng hash (Base64 demo, production nên dùng bcrypt)</li>
+                    <li><strong>Sanitize trước khi lưu:</strong> Escape HTML entities để tránh stored XSS</li>
+                    <li><strong>Kiểm tra trùng email:</strong> Không cho phép đăng ký email đã tồn tại</li>
+                    <li><strong>Lưu ý:</strong> LocalStorage không mã hóa, không nên lưu sensitive data ở production</li>
+                    <li><strong>Khuyến nghị:</strong> Sử dụng HTTPS + httpOnly cookies + server-side storage cho authentication thực tế</li>
+                </ul>
+
+                <h3 style="color: var(--text-dark); margin-top: 1rem; margin-bottom: 0.5rem;">3. Validation Rules:</h3>
+                <ul style="margin-left: 1.5rem;">
+                    <li><strong>Email:</strong> Regex pattern RFC 5322 - kiểm tra định dạng email chuẩn</li>
+                    <li><strong>Password:</strong> Tối thiểu 8 ký tự, bắt buộc có chữ hoa, chữ thường và số</li>
+                    <li><strong>Terms:</strong> Bắt buộc phải check để hoàn tất đăng ký</li>
+                </ul>
+            </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy;MSSV: 231A290043 | Bài thi Lập Trình Web</p>
+        <div class="footer-links">
+            <a href="https://www.facebook.com/hao.tram.51135" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-facebook"></i>
+                <span>Facebook</span>
+            </a>
+            <a href="https://www.tiktok.com/@haotram1007?_r=1&amp;_t=ZS-93e0CLvtA2r" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-tiktok"></i>
+                <span>TikTok</span>
+            </a>
+            <a href="tel:+84857927869">
+                <i class="fa-solid fa-phone"></i>
+                <span>+84 857 927 869</span>
+            </a>
+            <a href="mailto:tramngochao05@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+                <span>tramngochao05@gmail.com</span>
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

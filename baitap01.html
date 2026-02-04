@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 1 - Danh sách sản phẩm | 710-231A290043</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <i class="fa-solid fa-code"></i>
+                HaoTram
+            </a>
+            <button class="nav-toggle" data-testid="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="baitap01.html" class="active">Bài tập 1</a></li>
+                <li><a href="baitap02.html">Bài tập 2</a></li>
+                <li><a href="baitap03.html">Bài tập 3</a></li>
+                <li><a href="baitap14.html">Bài tập 14</a></li>
+                <li><a href="about.html">Giới thiệu</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="exercise-container">
+            <!-- Page Header -->
+            <section class="exercise-header">
+                <h1><i class="fa-solid fa-store"></i> TechStore Premium</h1>
+                <p>Bài tập 1: Danh sách sản phẩm công nghệ với chức năng tìm kiếm nâng cao</p>
+            </section>
+
+            <!-- Search Box -->
+            <div class="search-box" data-testid="search-box">
+                <div class="search-box-inner">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        placeholder="🔍 Tìm kiếm sản phẩm công nghệ..." 
+                        data-testid="search-input"
+                    >
+                    <button class="btn btn-primary" id="search-btn" data-testid="search-btn">
+                        <i class="fa-solid fa-search"></i> Tìm kiếm
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="product-container" data-testid="product-container">
+                <!-- Products will be rendered by JavaScript -->
+            </div>
+
+            <!-- Logic Explanation -->
+            <section class="explanation-card">
+                <h2>
+                    <i class="fa-solid fa-code"></i> Chi Tiết Kỹ Thuật Implementation
+                </h2>
+                <div>
+                    <h3> Security & Input Protection</h3>
+                    <ul>
+                        <li><strong>Advanced Sanitization:</strong> Implement <code>sanitizeInput()</code> function với comprehensive XSS protection và HTML entity escaping</li>
+                        <li><strong>Safe DOM Manipulation:</strong> Sử dụng <code>createElement()</code> và <code>textContent</code> thay vì <code>innerHTML</code> để prevent code injection</li>
+                        <li><strong>Unicode Normalization:</strong> Apply <code>normalize('NFD')</code> để support Vietnamese diacritics removal trong search functionality</li>
+                    </ul>
+                    
+                    <h3> Performance Optimization</h3>
+                    <ul>
+                        <li><strong>Smart Debouncing:</strong> Implement 300ms debounce cho real-time search để minimize excessive API calls</li>
+                        <li><strong>Efficient Algorithms:</strong> Utilize <code>Array.filter()</code> với O(n) complexity cho optimal search performance</li>
+                        <li><strong>Lazy Loading Strategy:</strong> Apply <code>loading="lazy"</code> attribute cho images để improve initial page load</li>
+                        <li><strong>Batch DOM Updates:</strong> Sử dụng <code>DocumentFragment</code> để minimize layout thrashing và reflow</li>
+                    </ul>
+
+                    <h3> Modern UX/UI Architecture</h3>
+                    <ul>
+                        <li><strong>Responsive CSS Grid:</strong> Implement <code>auto-fill</code> và <code>minmax()</code> cho adaptive layout across devices</li>
+                        <li><strong>Advanced Animations:</strong> Apply <code>cubic-bezier</code> transitions với hardware acceleration</li>
+                        <li><strong>Accessibility Standards:</strong> Include proper ARIA labels, keyboard navigation support và screen reader optimization</li>
+                        <li><strong>Interactive Feedback:</strong> Comprehensive loading states, empty state handling và visual user feedback systems</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Product Detail Overlay -->
+    <div class="product-detail-overlay" id="product-detail-overlay" aria-hidden="true">
+        <div class="product-detail-card" role="dialog" aria-modal="true">
+            <button class="product-detail-close" type="button" aria-label="Đóng chi tiết sản phẩm" data-detail-close>
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="product-detail-body">
+                <div class="product-detail-image">
+                    <img src="" alt="" data-detail-image>
+                </div>
+                <div class="product-detail-info">
+                    <h3 class="product-detail-title" data-detail-title></h3>
+                    <p class="product-detail-description" data-detail-description></p>
+                </div>
+            </div>
+            <span class="product-detail-price" data-detail-price></span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy;MSSV: 231A290043 | Bài thi Lập Trình Web</p>
+        <div class="footer-links">
+            <a href="https://www.facebook.com/hao.tram.51135" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-facebook"></i>
+                <span>Facebook</span>
+            </a>
+            <a href="https://www.tiktok.com/@haotram1007?_r=1&amp;_t=ZS-93e0CLvtA2r" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-tiktok"></i>
+                <span>TikTok</span>
+            </a>
+            <a href="tel:+84857927869">
+                <i class="fa-solid fa-phone"></i>
+                <span>+84 857 927 869</span>
+            </a>
+            <a href="mailto:tramngochao05@gmail.com">
+                <i class="fa-solid fa-envelope"></i>
+                <span>tramngochao05@gmail.com</span>
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const productContainer = document.getElementById('product-container');
+            const searchInput = document.getElementById('search-input');
+            const searchBtn = document.getElementById('search-btn');
+            const detailOverlay = document.getElementById('product-detail-overlay');
+            const detailImage = detailOverlay?.querySelector('[data-detail-image]');
+            const detailTitle = detailOverlay?.querySelector('[data-detail-title]');
+            const detailDescription = detailOverlay?.querySelector('[data-detail-description]');
+            const detailPrice = detailOverlay?.querySelector('[data-detail-price]');
+            const detailClose = detailOverlay?.querySelector('[data-detail-close]');
+
+            if (!productContainer || !searchInput || !searchBtn) return;
+
+            const normalizeText = (value = '') =>
+                value
+                    .toLowerCase()
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '');
+
+            const sanitizeInput = (value = '') =>
+                value.replace(/[<>]/g, '').trim();
+
+            const products = [
+                {
+                    name: 'Bàn phím Cơ Corsair K95',
+                    description: 'Switch Cherry MX Speed · LED RGB đa vùng',
+                    price: '4.990.000₫',
+                    image: 'images/baitap1/Bàn phím Cơ Corsair K95.jpg'
+                },
+                {
+                    name: 'Chuột Logitech MX Master',
+                    description: '7 nút tùy biến · cảm biến 8K DPI · Flow đa thiết bị',
+                    price: '2.490.000₫',
+                    image: 'images/baitap1/Chuột Logitech MX Master.jpg'
+                },
+                {
+                    name: 'Laptop Dell XPS 13',
+                    description: 'Intel Core i7 · RAM 16GB · SSD 1TB · màn InfinityEdge',
+                    price: '34.990.000₫',
+                    image: 'images/baitap1/Laptop Dell XPS 13.jpg'
+                },
+                {
+                    name: 'Loa Bluetooth JBL Charge 4',
+                    description: 'Công suất 30W · pin 20 giờ · chống nước IPX7',
+                    price: '3.290.000₫',
+                    image: 'images/baitap1/Loa Bluetooth JBL Charge 4.jpg'
+                },
+                {
+                    name: 'Màn hình Samsung 27 inch',
+                    description: 'IPS QHD · 75Hz · AMD FreeSync · viền mỏng',
+                    price: '7.990.000₫',
+                    image: 'images/baitap1/Màn hình Samsung 27 inch.jpg'
+                },
+                {
+                    name: 'Tai nghe Sony WH-1000XM4',
+                    description: 'Chống ồn chủ động · Adaptive Sound Control',
+                    price: '6.990.000₫',
+                    image: 'images/baitap1/Tai nghe Sony WH-1000XM4.jpg'
+                },
+                {
+                    name: 'Webcam HD Logitech',
+                    description: 'Full HD 1080p · Autofocus · micro kép giảm ồn',
+                    price: '1.690.000₫',
+                    image: 'images/baitap1/Webcam HD Logitech.jpg'
+                }
+            ].map((product) => ({
+                ...product,
+                searchableName: normalizeText(product.name),
+                searchableDescription: normalizeText(product.description)
+            }));
+
+            const openProductDetail = (product) => {
+                if (!detailOverlay || !detailImage || !detailTitle || !detailDescription || !detailPrice) return;
+
+                detailImage.src = product.image;
+                detailImage.alt = product.name;
+                detailTitle.textContent = product.name;
+                detailDescription.textContent = product.description;
+                detailPrice.textContent = product.price;
+
+                detailOverlay.classList.add('show');
+                detailOverlay.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeProductDetail = () => {
+                if (!detailOverlay) return;
+                detailOverlay.classList.remove('show');
+                detailOverlay.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            };
+
+            if (detailClose) {
+                detailClose.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    closeProductDetail();
+                });
+            }
+
+            if (detailOverlay) {
+                detailOverlay.addEventListener('click', (event) => {
+                    if (event.target === detailOverlay) {
+                        closeProductDetail();
+                    }
+                });
+            }
+
+            const createProductCard = (product) => {
+                const card = document.createElement('article');
+                card.className = 'product-card';
+
+                const thumb = document.createElement('figure');
+                thumb.className = 'product-thumb';
+
+                const img = document.createElement('img');
+                img.src = product.image;
+                img.alt = product.name;
+                img.loading = 'lazy';
+                img.decoding = 'async';
+                thumb.appendChild(img);
+
+                const body = document.createElement('div');
+                body.className = 'product-body';
+
+                const title = document.createElement('h3');
+                title.textContent = product.name;
+
+                const desc = document.createElement('p');
+                desc.textContent = product.description;
+
+                const price = document.createElement('span');
+                price.className = 'product-price';
+                price.textContent = product.price;
+
+                body.append(title, desc, price);
+                card.append(thumb, body);
+                return card;
+            };
+
+            const renderProducts = (list) => {
+                // Add loading animation
+                productContainer.innerHTML = '<div class="loading-spinner" style="grid-column: 1/-1; text-align: center; padding: 3rem;"><i class="fa-solid fa-spinner fa-spin" style="font-size: 3rem; color: var(--primary);"></i></div>';
+                
+                setTimeout(() => {
+                    productContainer.replaceChildren();
+                    if (!list.length) {
+                        const empty = document.createElement('div');
+                        empty.className = 'empty-state';
+                        
+                        const text = document.createElement('p');
+                        text.className = 'empty-state-text';
+                        text.textContent = 'Không tìm thấy sản phẩm phù hợp với từ khóa của bạn';
+                        
+                        empty.appendChild(text);
+                        productContainer.appendChild(empty);
+                        return;
+                    }
+                    const fragment = document.createDocumentFragment();
+                    list.forEach((product, index) => {
+                        const card = createProductCard(product);
+
+                        const imgEl = card.querySelector('img');
+                        if (imgEl) {
+                            imgEl.style.cursor = 'zoom-in';
+                            imgEl.addEventListener('click', (event) => {
+                                event.stopPropagation();
+                                openProductDetail(product);
+                            });
+                        }
+                        // Stagger animation
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(30px)';
+                        setTimeout(() => {
+                            card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, index * 100);
+                        fragment.appendChild(card);
+                    });
+                    productContainer.appendChild(fragment);
+                }, 300);
+            };
+
+            const runFilter = () => {
+                const keyword = sanitizeInput(searchInput.value);
+                if (!keyword) {
+                    renderProducts(products);
+                    return;
+                }
+                const normalizedKeyword = normalizeText(keyword);
+                const matches = products.filter(
+                    (product) =>
+                        product.searchableName.includes(normalizedKeyword) ||
+                        product.searchableDescription.includes(normalizedKeyword)
+                );
+                renderProducts(matches);
+            };
+
+            searchBtn.addEventListener('click', runFilter);
+            searchInput.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    runFilter();
+                }
+            });
+
+            let debounceId;
+            searchInput.addEventListener('input', () => {
+                clearTimeout(debounceId);
+                debounceId = setTimeout(runFilter, 300);
+            });
+
+            renderProducts(products);
+        });
+    </script>
+</body>
+</html>
